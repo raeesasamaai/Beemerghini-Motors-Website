@@ -148,11 +148,15 @@ video {
 }
 
 .bannerT {
-    /*background-color: #0074d9; /* Background color for the banner */
-    color: white;
-    min-height: 300px;
-    text-align: left;
-    position: relative; /* Set banner position to relative */
+  color: white;
+  min-height: 300px;
+  text-align: left;
+  position: relative;
+  display: flex; /* Enables flex layout for better alignment */
+  align-items: center; /* Vertically centers content */
+  justify-content: left; /* Horizontally aligns to the left */
+  
+  box-sizing: border-box; /* Ensures padding is included in width/height */
 }
 
     .bannerT img {
@@ -396,12 +400,32 @@ video {
     }
 
     .text-wrap {
-    /*background: rgba(0, 0, 0, 0.7);*/ /* Adjust background color and opacity as needed */
-    padding: 20px;
-    border-radius: 5px;
-    text-align: left; /* Center align the text */
-    margin-top:150px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left; /* Adjust as needed for alignment */
+  margin-top: 100px;
+  font-size: 1.2rem; /* Set a base font size */
+  line-height: 1.6; /* Improve readability */
+  word-wrap: break-word; /* Ensure long words break correctly */
 }
+
+@media (max-width: 768px) { /* For tablets and small screens */
+  .text-wrap {
+    padding: 15px;
+    font-size: 1rem;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 480px) { /* For mobile devices */
+  .text-wrap {
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-top: 50px;
+    text-align: left; /* Center-align text on smaller screens */
+  }
+}
+
 
 .banText {
     font-size: 50px; /* Default font size for larger screens */
@@ -448,7 +472,7 @@ video {
 
     .fans {
         font-family: 'Open Sans', sans-serif;
-         font-size:20px;
+         font-size:19px;
         margin-top:25px;
     
     }
@@ -728,6 +752,23 @@ ul{
 
 <!----------------------------------------------CONTENT WITH IMAGES AND TEXT - START-------------------------------->
 
+<div class="container text-left text-white top">
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-md-12">
+      <p class="join1">50 YEARS OF EXCELLENCE!</p>
+      <p class="fans">Beemerghini Motors marks a monumental milestone—50 years of delivering unmatched luxury and performance. As the premier destination for BMW and Lamborghini enthusiasts, we've dedicated half a century to redefining the art of driving.
+        <br>
+        <br>
+        Join us in celebrating this incredible journey with our special anniversary video, showcasing the legacy, passion, and innovation that drive Beemerghini Motors. Watch now and experience the thrill that only BMW and Lamborghini can offer.</p>
+      
+      <asp:Button ID="Button1" runat="server" Text="LEARN MORE" BackColor="#21201E" BorderColor="White" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Font-Size="Large" Font-Names="'Open Sans', sans-serif" Width="7em" Height="2em" />
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <iframe class="w-100" style="height: 340px;" src="https://www.youtube.com/embed/yQrdlXcArkc" title="BMW &amp; Lamborghini Promotional Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
  <div class="container text-left text-white top">
   <div class="row align-items-center">
     <div class="col-lg-6 col-md-12">
@@ -756,8 +797,26 @@ ul{
   </div>
 </div>
 <br>
+<!---------------------------------------------------
+<div class="container text-left text-white top">
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-md-12">
+      <iframe class="w-100" style="height: 315px;" src="https://www.youtube.com/embed/yQrdlXcArkc" title="BMW &amp; Lamborghini Promotional Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <p class="join1">50 YEARS OF EXCELLENCE!</p>
+      <p class="fans">Beemerghini Motors marks a monumental milestone—50 years of delivering unmatched luxury and performance. As the premier destination for BMW and Lamborghini enthusiasts, we've dedicated half a century to redefining the art of driving.
+        <br>
+        <br>
+        Join us in celebrating this incredible journey with our special anniversary video, showcasing the legacy, passion, and innovation that drive Beemerghini Motors. Watch now and experience the thrill that only BMW and Lamborghini can offer.</p>
+      <br />
+      <asp:Button ID="btnLearnMore" runat="server" Text="LEARN MORE" BackColor="#21201E" BorderColor="White" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Font-Size="Large" Font-Names="'Open Sans', sans-serif" Width="7em" Height="2em" />
+    </div>
+  </div>
+</div>
+<br>
 
-<!---------------------------------------------------CONTENT WITH IMAGES AND TEXT - END--------------------------------->
+CONTENT WITH IMAGES AND TEXT - END--------------------------------->
 
 <!-----------------------------------------------------------PARALLAX START--------------------------------------------------------------->
 
@@ -778,7 +837,7 @@ ul{
 <br>
 
  <!-----------------------------------------------------------MODELS END--------------------------------------------------------------->   
-
+ 
 <!----------------------------------------------------------- CAROUSEL START -------------------------------------------------------------->
 
  <div class="container px-2 px-md-4 text-start text-white">
