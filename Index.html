@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title>BGM | Home</title>
+    
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
+    
+    <!-- Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" 
+          rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" 
+          rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" 
+          rel="stylesheet">
+    
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" type="text/css" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous"></script>
+
+</head>
+
+<!-- CSS Style Section Starts Here -->
+
+<style>
+body {
+	background-color: #21201E;
+	background-blend-mode: multiply;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Set body position to relative */
+    overflow-x: hidden;
+}
+*{
+    box-sizing: border-box;
+}
+
+img, .image-container, .models {
+    max-width: 100%;
+}
+
+/* Flex Container Styling */
+.flex1 {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping for responsiveness */
+  gap: 0rem; /* Add space between images */
+  justify-content: space-between; /* Align images with space */
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  width: calc(50%); /* Set width for side-by-side layout with gap */
+}
+
+/* Responsive Images */
+.models {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.5s; /* Smooth transition effect */
+  opacity: 0.8;
+}
+
+.models:hover {
+  opacity: 1;
+}
+
+/* Image Text */
+.image-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1.5rem; /* Responsive font size */
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Add subtle text shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .image-container {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .image-text {
+    font-size: 1.25rem; /* Adjust text size for smaller screens */
+  }
+}
+
+    .nav {
+       background-color: #e91e63;
+    }
+
+/*Banner Video*/
+video {
+    width: 100%;
+    height: auto; /* Maintain the video's aspect ratio */
+    display: block;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    //background-image: linear-gradient(black, gray);
+    opacity: 0.7;
+    color: #fff;
+    z-index: 1; /* Place the navigation bar above the video */
+}
+
+
+
+.contentv {
+    background-color: black; /* Background color for the content */
+    padding: 20px;
+    z-index: 1; /* Place the content above the video */
+	color:white;
+	font-family:century gothic;
+	text-align:center;
+}
+
+.bannerT {
+    /*background-color: #0074d9; /* Background color for the banner */
+    color: white;
+    min-height: 300px;
+    text-align: left;
+    position: relative; /* Set banner position to relative */
+}
+
+    .bannerT img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+  .video-text {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    transform: translate(-20%, -20%);
+    /*background: rgba(0, 0, 0, 0.5); /* Background color with opacity */
+    /*color: #fff; /* Text color */
+    padding: 10px; /* Adjust padding as needed */
+}
+
+
+
+.sound-button {
+    width:20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    //background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 2; /* Place the sound button above the video */
+}
+
+/*Banner Video End*/
+
+
+@media (max-width: 991px) {
+	.sidebar {
+		background-color: rgba(255,255,255,0.15);
+		backdrop-filter: blur(10px);
+	}
+}
+
+  
+  .icon {
+  transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+.icon:hover {
+  transform: scale(1.2); /* Zoom in on hover (adjust the scale value as needed) */
+}
+
+
+.back {
+	background-color:blue;
+}
+
+
+    .top {
+        padding-top:2em;
+        padding-bottom:2em;
+
+    }
+
+    #header {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url(Images/BGM4.png);
+        background-size: 110%;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat ;
+    }
+
+    .flex1 {
+        display:flex;
+        justify-content:space-between;
+    }
+
+
+.image-container {
+  position: relative;
+}
+
+.image-text {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  /*color: #fff; /* Text color */
+  /*background: rgba(0, 0, 0, 0.5); /* Background color with opacity */
+  padding: 5px; /* Padding around the text */
+  font-size: 35px; /* Adjust as needed */
+  font-family:  'Open Sans', sans-serif;
+  color:white;
+  font-weight:bold;
+  letter-spacing:0.20em;
+  text-decoration:none;
+  stroke:whitesmoke;
+ 
+}
+
+    /*VIDEO SLIDESHOW*/
+
+    .video {
+        width:60%;
+        height:auto;
+        margin: auto;
+       
+    }
+
+    .carousel-item {
+        height: auto;
+        min-height: auto;
+      
+    }
+
+    .carousel-caption {
+        bottom: 200px;
+        z-index: 2;
+
+    }
+
+    .carousel-caption h5{
+       font-size: 20px;
+       text-transform: uppercase;
+       letter-spacing: 2px;
+       margin-top: 20px;
+    }
+
+     .carousel-caption p{
+      width: 15%;
+      margin:auto;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .carousel-inner:before {
+        content: '';
+        width: 20%;
+        height: auto;
+        background: rgba(0, 0, 0, 0.4);
+        z-index:1;
+    }
+
+    /* Parallax */
+ .parallax-header1 {
+        background: #000;
+        background: /*linear-gradient(
+                rgba(0,0,0,0.3),
+                rgba(0,0,0,0.8)
+            ),*/
+            url(Images/BackgroundParallax.jpg);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax-header {
+        background: #000;
+        background: /*linear-gradient(
+                rgba(0,0,0,0.3),
+                rgba(0,0,0,0.8)
+            ),*/
+            url(Images/background.jpg);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .parallax-header2 {
+        background: #000;
+        background: /*linear-gradient(
+                rgba(0,0,0,0.3),
+                rgba(0,0,0,0.8)
+            ),*/
+            url(Images/background2.jpg);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .header-content {
+        padding: 100px 0 600px 0;
+    }
+
+     .header-content1 {
+        padding: 0px 0 0px 0;
+    }
+
+    .content {
+        margin-top:0px;
+        background: #fff
+        box-shadow: 0 0 20px -6px rgba(0,0,0,0.2);
+    }
+
+        .content .left {
+            padding-top: 30px;
+        }
+
+        .content .right {
+            padding-top: 30;
+        }
+
+    .text-justify {
+        text-align: justify;
+    }
+
+    .container1 {
+        display: inline-block;
+    }
+
+    .textt {
+        font-size: 5em;
+        letter-spacing:1px;
+        border-right: 5px solid;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        animation:
+            typing 2s steps(18),
+            cursor .4s step-end infinite alternate;
+
+    }
+
+/*cursor blinking*/
+    @keyframes cursor {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+/*typing effect*/
+    @keyframes typing{
+        from {
+            width: 0;
+        }
+    }
+
+    .text-wrap {
+    /*background: rgba(0, 0, 0, 0.7);*/ /* Adjust background color and opacity as needed */
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left; /* Center align the text */
+    margin-top:150px;
+}
+
+.banText {
+    font-size: 50px; /* Default font size for larger screens */
+    margin: 0;
+    font-family:  'Open Sans', sans-serif;
+}
+
+.fansT {
+    font-size: 35px; /* Default font size for larger screens */
+    margin: 0px 0;
+    font-family:  'Open Sans', sans-serif;
+}
+
+/* Responsive Font Sizes */
+@media screen and (max-width: 768px) {
+    .banText {
+        font-size: 24px; /* Adjust as needed for smaller screens */
+    }
+    .fansT {
+        font-size: 16px; /* Adjust as needed for smaller screens */
+    }
+}
+
+
+
+
+
+    .join1 {
+       font-family: 'Julius Sans One', sans-serif;
+        color:#d9d9d9;
+        font-size:35px;
+        margin-top:25px;
+        text-align:left;
+    }
+
+
+    .join {
+       font-family: 'Julius Sans One', sans-serif;
+        color:#d9d9d9;
+        font-size:34px;
+        margin-top:55px;
+
+    }
+
+    .fans {
+        font-family: 'Open Sans', sans-serif;
+         font-size:20px;
+        margin-top:25px;
+    
+    }
+
+    .fans2
+    {
+        font-family: 'Open Sans', sans-serif;
+         font-size:20px;
+        /*margin-top:30px;*/
+    
+    }
+
+
+    .btn {
+        font-family:'Open Sans', sans-serif;
+    }
+
+    btn:hover {
+        letter-spacing: 0.25em;
+    }
+
+
+
+    .models {
+        transition: transform 0.5s; /* Add a smooth transition effect */
+        opacity: 0.8;
+    }
+
+  .models:hover {
+       opacity: 1;
+ 
+}
+
+
+  .FooterBannerT {
+        font-family:  'Open Sans', sans-serif;
+        color:#d9d9d9;
+        font-size:33px;
+        /*font-weight:bold;*/
+        text-align:center;
+        position:absolute;
+        left:310px;
+        right:310px;
+      
+
+       
+        top:3320px;
+        text-shadow: 2px 2px 30px black;
+    }
+
+
+/*FOOTER*/
+
+body{
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+
+
+    .bottomText {
+        font-size:14px;
+        font-family: 'Open Sans', sans-serif;
+        padding:20px;
+        text-align:center;
+        color:#d9d9d9;
+        background-color: #24262b;
+    }
+
+</style>
+<!--------------------------------------------------------------------- CSS STYLE END---------------------------------------------------------------------------->
+</head>
+  <body class="vh-100 ">
+    <form id="form1" runat="server">
+    <div>
+<!--------------------------------------------------------------------- NAVBAR START---------------------------------------------------------------------------->
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+  <div class="container">
+  <!-- Logo -->
+    <a class="navbar-brand fs-4" href="BeemerghiniMotors.html"><img src="Images/BGlogo.png" alt="Bootstrap" width="136" height="52"></a>
+	<!-- Toggle Btn -->
+    <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	
+	<!-- SideBar -->
+    <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      
+	<!-- SideBar Header -->  
+	  <div class="offcanvas-header text-white border-bottom">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="Images/BGlogo.png" alt="Bootstrap" width="136" height="52"></h5>
+        <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+	  
+	<!-- SideBar Body --> 
+      <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+        <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+          <li class="nav-item mx-2">
+            <a class="nav-link active" aria-current="page" >Home</a>
+          </li>
+		  <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Models
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" >BMW</a></li>
+              <li><a class="dropdown-item" >Lamborghini</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" >Test Drive</a>
+          </li>
+		  <li class="nav-item mx-2">
+            <a class="nav-link" >Configurator</a>
+          </li>
+		  <li class="nav-item mx-2">
+            <a class="nav-link" >About</a>
+          </li>
+		  <li class="nav-item mx-2">
+            <a class="nav-link" >Contact Us</a>
+          </li>
+		  
+          
+        </ul>
+		<!-- Cart / Search / Admin Login --> 
+		<div class="d-flex flex-lg-row justify-content-center align-items-center gap-4">
+		<a  class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="1.4em" viewBox="0 0 512 512"---><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></a>
+		<a  class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="1.4em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></a>
+		<a  class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="1.4em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a>
+        </div>
+		
+      </div>
+    </div>
+  </div>
+</nav>
+<!--------------------------------------------------------------------- NAVBAR END ---------------------------------------------------------------------------->
+
+
+<!---------------------------------------------VIDEO BANNER START-------------------------------------------------->
+<section class="showcase">
+    <header>
+
+    </header>
+
+  <div class="bannerT">
+    <video autoplay loop muted playsinline>
+        <source src="https://videos.pexels.com/video-files/3757013/3757013-uhd_2560_1440_24fps.mp4" type="video/mp4">
+        <!-- Add more source elements for other video formats (e.g., WebM, Ogg) -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="sound-button" id="soundButton" onclick="toggleMute()">
+        🔇
+    </div>
+    <div class="video-text">
+        <div class="text-wrap ">
+
+            <p class="banText"> BEEMERGHINI MOTORS </p>
+
+           <!-- <p class="banText">Driving Perfection, the German and Italian Way.</p>-->
+         
+            <p class="fansT">The Ultimate Destination for BMW and Lamborghini Enthusiasts</p>
+
+     </div>
+    </div>
+</div>
+
+
+    </div>
+
+   <script>
+        const video = document.querySelector('video');
+        const soundButton = document.getElementById('soundButton');
+
+       function toggleMute() {
+           if (video.muted) {
+               video.muted = false;
+               soundButton.textContent = '🔊';
+           } else {
+               video.muted = true;
+               soundButton.textContent = '🔇';
+           }
+       }
+    </script>
+    <div class="overlay"></div>
+<br>
+
+<!---------------------------------------------VIDEO BANNER END-------------------------------------------------->
+
+
+<!----------------------------------------------CONTENT WITH IMAGES AND TEXT - START-------------------------------->
+
+ <div class="container text-left text-white top">
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-md-12">
+      <img src="https://car-images.bauersecure.com/wp-images/10926/roadtripvideo.jpg" class="w-100" alt="img1">
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <p class="join1">EUROPE VS AMERICA ROAD TRIP!</p>
+      <p class="fans"><i>Europe vs America.</i> See how the BMW i8 and Lamborghini Huracan fared against two of the US’s most exciting new cars, the Dodge SRT Hellcat and Ford Mustang.</p>
+      <br />
+      <asp:Button ID="btnLearnMore" runat="server" Text="LEARN MORE" BackColor="#21201E" BorderColor="White" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Font-Size="Large" Font-Names="'Open Sans', sans-serif" Width="7em" Height="2em" />
+    </div>
+  </div>
+</div>
+
+<div class="container text-left text-white top">
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-md-12">
+      <p class="join1">JOIN BEEMERGHINI ON FORZA HORIZON 4!</p>
+      <p class="fans">Check out our limited edition Lamborghini Aventador and BMW M4 in Forza Horizon 4</p>
+      <br />
+      <asp:Button ID="Button1" runat="server" Text="LEARN MORE" BackColor="#21201E" BorderColor="White" BorderStyle="Solid" BorderWidth="2px" ForeColor="White" Font-Size="Large" Font-Names="'Open Sans', sans-serif" Width="7em" Height="2em" />
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <img src="https://i.pinimg.com/originals/06/f3/2d/06f32d6cf43f583324070028e04b4717.png" class="w-100" alt="img1">
+    </div>
+  </div>
+</div>
+<br>
+
+<!---------------------------------------------------CONTENT WITH IMAGES AND TEXT - END--------------------------------->
+
+<!-----------------------------------------------------------PARALLAX START--------------------------------------------------------------->
+
+<!-----------------------------------------------------------PARALLAX END--------------------------------------------------------------->
+
+    
+<!-----------------------------------------------------------MODELS START--------------------------------------------------------------->    
+<div class="flex1">
+    <div class="image-container">
+      <a href="https://www.lamborghini.com/en-en"><img src="https://i.pinimg.com/originals/0c/2c/1c/0c2c1c520e05afedb240075f141653a0.jpg" class="w-100 models" alt="LAMBORGHINI"></a>
+      <a href="https://www.lamborghini.com/en-en" class="image-text">LAMBORGHINI→</a>
+    </div>
+    <div class="image-container">
+        <a href="https://www.lamborghini.com/en-en"><img src="https://www.bmw.co.za/content/dam/bmw/common/topics/fascination-bmw/bmw-m-individual/bmw-individual-gallery-image-diversity-01_1920.jpg.asset.1681227265459.jpg" class="w-100 models" alt="BMW"></a>
+      <a href="https://www.bmw.com/en/index.html" class="image-text">BMW→</a>
+    </div>
+  </div>  
+<br>
+
+ <!-----------------------------------------------------------MODELS END--------------------------------------------------------------->   
+
+<!----------------------------------------------------------- CAROUSEL START -------------------------------------------------------------->
+
+ <div class="container px-2 px-md-4 text-start text-white">
+  <div class="row gx-2 gx-md-5">
+    <div class="col-md-6">
+      <div class="p-3">
+        <p class="join">JOIN OUR BEEMERGHINI COMMUNITY ON SOCIAL MEDIA</p>
+        <p class="fans">Thank you, BMW and Lamborghini enthusiasts, for your unwavering passion & incredible videos! Your creativity blows us away!</p>
+        <p class="fans2">Follow us on social media for the latest speed and style updates. Don't miss out on the ride of your dreams!</p>
+        <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-end gap-2">
+          <a href="https://www.instagram.com/bmwsouthafrica/" class="icon"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+          <a href="https://www.tiktok.com/@bmw?lang=en" class="icon"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg></a>
+          <a href="https://www.youtube.com/user/BMW" class="icon"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-3">
+        <div id="carouselExampleCaptions" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <video autoplay loop muted class="video">
+                <source src="https://videos.pexels.com/video-files/14912575/14912575-uhd_1440_2560_60fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="carousel-item">
+              <video autoplay loop muted class="video">
+                <source src="Images/BGM7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+             <div class="carousel-item">
+              <video autoplay loop muted class="video">
+                <source src="https://videos.pexels.com/video-files/28545972/12416542_1080_1920_30fps.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" ariahidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+ <!---------------------------------------------------------------------------- CAROUSEL END ------------------------------------------------------------------------->
+
+
+
+<!--<div class="FooterBannerT">Driving Perfection, the German and Italian Way.</div>-->
+ <img src="Images/FooterBannerWithText.jpg" class="w-100" alt="img1">
+ 
+        
+<!--------------------------------------------------------------------------- FOOTER START ---------------------------------------------------------------------------->     
+        
+  <footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>company</h4>
+  	 			<ul>
+  	 				<li><a href="#">about us</a></li>
+  	 				<li><a href="#">our services</a></li>
+  	 				<li><a href="#">privacy policy</a></li>
+  	 				<li><a href="#">affiliate program</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>get help</h4>
+  	 			<ul>
+  	 				<li><a href="#">FAQ</a></li>
+  	 				<li><a href="#">shipping</a></li>
+  	 				<li><a href="#">returns</a></li>
+  	 				<li><a href="#">order status</a></li>
+  	 				<li><a href="#">payment options</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>online shop</h4>
+  	 			<ul>
+  	 				<li><a href="#">watch</a></li>
+  	 				<li><a href="#">bag</a></li>
+  	 				<li><a href="#">shoes</a></li>
+  	 				<li><a href="#">dress</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="#"><i class="fab fa-twitter"></i></a>
+  	 				<a href="#"><i class="fab fa-instagram"></i></a>
+  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>      
+        
+     <div class="bottomText"> ©2025 – Beemerghini Motors | BEEMERGHINI MOTORS™ is a registered trademark. All rights reserved.</div>    
+           
+<!---------------------------------------------------------------------- FOOTER END --------------------------------------------------------------->  
+    </div>
+    </form>
+</body>
+</body>
+</html>
